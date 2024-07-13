@@ -13,6 +13,7 @@ const recipeorderContainer = document.querySelector('#recipe-order-container');
 const searchInput = document.querySelector('.form-control');
 const searchButton = document.querySelector('.btn-success');
 
+// search button
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.trim();
     if (query !== '' && options.includes(query)) {
@@ -22,6 +23,7 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+// search input
 controlMenu.addEventListener('click', () => {
     if (menu.style.left === '-100%') {
         menu.style.left = '0';
@@ -32,6 +34,7 @@ controlMenu.addEventListener('click', () => {
     }
 });
 
+// menu list
 options.forEach(option => {
     const optionEle = document.createElement('li');
     optionEle.classList.add('py-3', 'ps-3', 'border-bottom', 'fs-3');
@@ -40,6 +43,7 @@ options.forEach(option => {
     menuList.appendChild(optionEle);
 });
 
+
 menuList.addEventListener('click', (e) => {
     if (e.target.innerText !== '') {
         getApi(e.target.innerText);
@@ -47,6 +51,8 @@ menuList.addEventListener('click', (e) => {
     menu.style.left = '-100%';
 });
 
+
+// fetch recipes from the API
 const getApi = (query) => {
     console.log('Fetching recipes for:', query);
     const api = new XMLHttpRequest();
@@ -60,6 +66,7 @@ const getApi = (query) => {
 };
 getApi('pizza');
 
+// display recipes
 const display = (response) => {
     let str = '';
 
@@ -81,6 +88,7 @@ const display = (response) => {
     console.log('Recipes displayed:', response);
 };
 
+// show recipe details
 const getrecipeDecripe = (req) => {
     console.log('Fetching recipe details for ID:', req);
     const api = new XMLHttpRequest();
@@ -93,6 +101,7 @@ const getrecipeDecripe = (req) => {
     });
 };
 
+// show recipe order details
 recipesContainer.addEventListener('click', (e) => {
     const clickedRecipeCard = e.target.closest('.recipe-box');
     if (clickedRecipeCard) {
@@ -120,6 +129,7 @@ const recipeTitle = document.querySelector('#recipe-title');
 const recipePuplsher = document.querySelector('#recipe-publisher');
 const ingredientsMenu = document.querySelector('#ingredients-menu');
 
+// show recipe order details
 const showOrder = (req) => {
     console.log('Showing order for:', req);
     ingredientsMenu.innerHTML = ''; // Clear previous ingredients
