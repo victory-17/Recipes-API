@@ -15,4 +15,4 @@ This web app is a recipe search application that allows users to search for vari
 
 ### Demo Link
 
-[Click Here]([https://victory-17.github.io/Recipes-API](https://victory-17.github.io/Recipes-Website/ "Demo link")
+[Click Here]([https://victory-17.github.io/Recipes-Website/] "Demo link")
